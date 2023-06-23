@@ -1,6 +1,7 @@
 import os
+import sys
 
-for x in os.walk('./dataset/evaluation/'):
-  if not (os.path.isfile(f'./solutions/correct/solutions_{x}') or os.path.isfile(f'./solutions/incorrect/solutions_{x}')):
-    continue
-  os.system(f'python3 main.py {x} evaluation')
+x = sys.argv[1]
+if not (os.path.isfile(f'./solutions/correct/solutions_{x}') or os.path.isfile(f'./solutions/incorrect/solutions_{x}')):
+  exit(1)
+os.system(f'python main.py {x} evaluation')
